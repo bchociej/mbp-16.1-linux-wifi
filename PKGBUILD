@@ -1,11 +1,11 @@
 # Maintainer: Aun-Ali Zaidi <admin@kodeit.net>
 # Contributor: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
-pkgbase=mbp-16.1-linux-wifi
+pkgbase=mbp-16.1-linux-5.10-wifi
 pkgver=5.10.33
 _srcname=linux-${pkgver}
 pkgrel=1
-pkgdesc='Linux for MBP 16.1 Wifi'
+pkgdesc='Linux 5.10 for MBP 16.1 Wifi'
 _srctag=v${pkgver%.*}-${pkgver##*.}
 url="https://git.archlinux.org/linux.git/log/?h=v$_srctag"
 arch=(x86_64)
@@ -93,8 +93,7 @@ prepare() {
 
 build() {
   cd $_srcname
-  make all
-  make htmldocs
+  make -j2 all
 }
 
 _package() {
